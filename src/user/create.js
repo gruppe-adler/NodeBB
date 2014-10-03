@@ -45,7 +45,8 @@ module.exports = function(User) {
 				'postcount': 0,
 				'lastposttime': 0,
 				'banned': 0,
-				'status': 'online'
+				'status': 'online',
+				'steam64id': ''
 			};
 
 			async.parallel({
