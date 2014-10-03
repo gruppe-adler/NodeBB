@@ -16,7 +16,7 @@ var async = require('async'),
 module.exports = function(User) {
 
 	User.updateProfile = function(uid, data, callback) {
-		var fields = ['username', 'email', 'fullname', 'website', 'location', 'birthday', 'signature', 'aboutme'];
+		var fields = ['username', 'email', 'fullname', 'website', 'location', 'birthday', 'signature', 'aboutme', 'steam64id'];
 
 		plugins.fireHook('filter:user.updateProfile', {uid: uid, data: data, fields: fields}, function(err, data) {
 			if (err) {
@@ -66,6 +66,15 @@ module.exports = function(User) {
 				});
 			}
 
+			function isSteam64idValid(next) {
+				var value = data.steam64id && data.steam64id.toString();
+				if (value && !value.match(/^[0-9]{17}$/)) {
+					next(new Error('[[error:invalid-steam64id, ' + value.length + ']]'));
+				} else {
+					next();
+				}
+			}
+
 			function isUsernameAvailable(next) {
 				if (!data.username) {
 					return next();
@@ -98,13 +107,12 @@ module.exports = function(User) {
 						if (err) {
 							return next(err);
 						}
-
 						next(exists ? new Error('[[error:username-taken]]') : null);
 					});
 				});
 			}
 
-			async.series([isAboutMeValid, isSignatureValid, isEmailAvailable, isUsernameAvailable], function(err) {
+			async.series([isAboutMeValid, isSignatureValid, isEmailAvailable, isUsernameAvailable, isSteam64idValid], function(err) {
 				if (err) {
 					return callback(err);
 				}
