@@ -14,11 +14,20 @@ var async = require('async'),
 module.exports = function(User) {
 
 	User.updateProfile = function(uid, data, callback) {
-		var fields = ['username', 'email', 'fullname', 'website', 'location', 'birthday', 'signature'];
+		var fields = ['username', 'email', 'fullname', 'website', 'location', 'birthday', 'signature', 'steam64id'];
 
 		function isSignatureValid(next) {
 			if (data.signature !== undefined && data.signature.length > meta.config.maximumSignatureLength) {
 				next(new Error('[[error:signature-too-long, ' + meta.config.maximumSignatureLength + ']]'));
+			} else {
+				next();
+			}
+		}
+
+		function isSteam64idValid(next) {
+			var value = data.steam64id && data.steam64id.toString();
+			if (value && !value.match(/^[0-9]{17}$/)) {
+				next(new Error('[[error:invalid-steam64id, ' + value.length + ']]'));
 			} else {
 				next();
 			}
@@ -79,7 +88,7 @@ module.exports = function(User) {
 			});
 		}
 
-		async.series([isSignatureValid, isEmailAvailable, isUsernameAvailable], function(err, results) {
+		async.series([isSignatureValid, isSteam64idValid, isEmailAvailable, isUsernameAvailable], function(err, results) {
 			if (err) {
 				return callback(err);
 			}
