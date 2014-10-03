@@ -37,7 +37,8 @@ define('forum/account/edit', ['forum/account/header', 'uploader', 'translator'],
 			birthday: $('#inputBirthday').val(),
 			location: $('#inputLocation').val(),
 			signature: $('#inputSignature').val(),
-			aboutme: $('#inputAboutMe').val()
+			aboutme: $('#inputAboutMe').val(),
+			steam64id: $('#inputSteam64id').val() || ''
 		};
 
 		socket.emit('user.updateProfile', userData, function(err, data) {
