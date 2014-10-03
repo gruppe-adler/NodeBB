@@ -22,7 +22,7 @@ module.exports = function(User) {
 			}
 
 			data = data.settings;
-			var fields = ['username', 'email', 'fullname', 'website', 'location', 'birthday', 'signature'];
+			var fields = ['username', 'email', 'fullname', 'website', 'location', 'birthday', 'signature', 'steam64id'];
 
 			function isSignatureValid(next) {
 				if (data.signature !== undefined && data.signature.length > meta.config.maximumSignatureLength) {
@@ -56,6 +56,15 @@ module.exports = function(User) {
 				});
 			}
 
+			function isSteam64idValid(next) {
+				var value = data.steam64id && data.steam64id.toString();
+				if (value && !value.match(/^[0-9]{17}$/)) {
+					next(new Error('[[error:invalid-steam64id, ' + value.length + ']]'));
+				} else {
+					next();
+				}
+			}
+
 			function isUsernameAvailable(next) {
 				if (!data.username) {
 					return next();
@@ -84,13 +93,12 @@ module.exports = function(User) {
 						if(err) {
 							return next(err);
 						}
-
 						next(exists ? new Error('[[error:username-taken]]') : null);
 					});
 				});
 			}
 
-			async.series([isSignatureValid, isEmailAvailable, isUsernameAvailable], function(err, results) {
+			async.series([isSignatureValid, isEmailAvailable, isUsernameAvailable, isSteam64idValid], function(err, results) {
 				if (err) {
 					return callback(err);
 				}

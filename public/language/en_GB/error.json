@@ -17,6 +17,7 @@
 	"invalid-password": "Invalid Password",
 	"invalid-username-or-password": "Please specify both a username and password",
 	"invalid-search-term": "Invalid search term",
+	"invalid-steam64id": "Invalid Steam64ID (was %1 characters, should be 17 digits)",
 
 	"invalid-pagination-value": "Invalid pagination value",
 
