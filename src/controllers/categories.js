@@ -105,6 +105,10 @@ categoriesController.list = function(req, res, next) {
 					var allCategories = [];
 
 					categoryData = categoryData.filter(function(category) {
+	if (!category) {
+		//throw new Exception(category);
+		return false;
+	}
 						if (!category.parent) {
 							allCategories.push(category);
 						}
