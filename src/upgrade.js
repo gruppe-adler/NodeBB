@@ -402,7 +402,7 @@ Upgrade.upgrade = function(callback) {
 								return next();
 							}
 							async.parallel([
-								async.apply(db.sortedSetAdd, 'groups:visible:createtime', groupData.createtime, groupName),
+								async.apply(db.sortedSetAdd, 'groups:visible:createtime', groupData.createtime || 0, groupName),
 								async.apply(db.sortedSetAdd, 'groups:visible:memberCount', groupData.memberCount || 0, groupName),
 								async.apply(db.sortedSetAdd, 'groups:visible:name', 0, groupName.toLowerCase() + ':' + groupName)
 							], next);
