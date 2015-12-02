@@ -21,8 +21,8 @@
     "lastonline": "Zuletzt online",
     "profile": "Profil",
     "profile_views": "Profilaufrufe",
-    "reputation": "Ansehen",
-    "favourites": "Lesezeichen",
+    "reputation": "Reputation",
+    "favourites": "Merkzettel",
     "watched": "Beobachtet",
     "followers": "Follower",
     "following": "Folge ich",
@@ -105,5 +105,10 @@
     "custom_route_help": "Gib hier einen Pfadnamen ohne vorangehenden Slash ein (z.B. \"recent\" oder \"popular\")",
     "sso.title": "Single Sign-on Dienste",
     "sso.associated": "Verbunden mit",
+<<<<<<< HEAD
     "sso.not-associated": "Verbinde dich mit"
 }
+=======
+    "sso.not-associated": "Hier klicken um Dich mit %1 zu verbinden"
+}
+>>>>>>> Update user.json
