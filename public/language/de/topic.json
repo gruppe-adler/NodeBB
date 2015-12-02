@@ -65,9 +65,9 @@
     "disabled_categories_note": "Deaktivierte Kategorien sind ausgegraut.",
     "confirm_move": "Verschieben",
     "confirm_fork": "Aufspalten",
-    "favourite": "Lesezeichen",
-    "favourites": "Lesezeichen",
-    "favourites.has_no_favourites": "Du hast noch keine Beiträge als Lesezeichen gespeichert.",
+    "favourite": "Merken",
+    "favourites": "Merkzettel",
+    "favourites.has_no_favourites": "Du hast noch nichts gemerkt.",
     "loading_more_posts": "Lade mehr Beiträge",
     "move_topic": "Thema verschieben",
     "move_topics": "Themen verschieben",
@@ -110,3 +110,4 @@
     "offensive": "Beleidigend",
     "custom-flag-reason": "Gib einen Grund für die Markierung ein"
 }
+
