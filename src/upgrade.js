@@ -115,71 +115,7 @@ Upgrade.upgrade = function(callback) {
 							if (!userData.picture || !userData.gravatarpicture) {
 								return next();
 							}
-
-							if (userData.gravatarpicture === userData.picture) {
-								async.series([
-									function (next) {
-										db.setObjectField('user:' + uid, 'picture', '', next);
-									},
-									function (next) {
-										db.deleteObjectField('user:' + uid, 'gravatarpicture', next);
-									}
-								], next);
-							} else {
-								db.deleteObjectField('user:' + uid, 'gravatarpicture', next);
-							}
-						});
-					}, function(err) {
-						if (err) {
-							return next(err);
-						}
-
-						winston.info('[2015/11/06] Gravatar pictures removed!');
-						Upgrade.update(thisSchemaDate, next);
-					});
-				});
-
-			} else {
-				winston.info('[2015/11/06] Gravatar removal skipped');
-				next();
-			}
-		},
-		function(next) {
-			thisSchemaDate = Date.UTC(2015, 11, 15);
-
-			if (schemaDate < thisSchemaDate) {
-				updatesMade = true;
-				winston.info('[2015/12/15] Upgrading chats');
-
-				db.getObjectFields('global', ['nextMid', 'nextChatRoomId'], function(err, globalData) {
-					if (err) {
-						return next(err);
-					}
-
-					var rooms = {};
-					var roomId = globalData.nextChatRoomId || 1;
-					var currentMid = 1;
-
-					async.whilst(function() {
-						return currentMid <= globalData.nextMid;
 					}, function(next) {
-						db.getObject('message:' + currentMid, function(err, message) {
-							function addMessageToUids(roomId, callback) {
-								async.parallel([
-									function(next) {
-										db.sortedSetAdd('uid:' + message.fromuid + ':chat:room:' + roomId + ':mids', msgTime, currentMid, next);
-									},
-									function(next) {
-										db.sortedSetAdd('uid:' + message.touid + ':chat:room:' + roomId + ':mids', msgTime, currentMid, next);
-									}
-								], callback);
-							}
-
-							if (err || !message)  {
-								winston.info('skipping chat message ', currentMid);
-								currentMid ++;
-								return next(err);
-							}
 
 							var pairID = [parseInt(message.fromuid, 10), parseInt(message.touid, 10)].sort().join(':');
 							var msgTime = parseInt(message.timestamp, 10);
