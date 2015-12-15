@@ -115,38 +115,6 @@ Upgrade.upgrade = function(callback) {
 							if (!userData.picture || !userData.gravatarpicture) {
 								return next();
 							}
-							async.parallel([
-								async.apply(db.sortedSetAdd, 'groups:visible:createtime', groupData.createtime || 0, groupName),
-								async.apply(db.sortedSetAdd, 'groups:visible:memberCount', groupData.memberCount || 0, groupName),
-								async.apply(db.sortedSetAdd, 'groups:visible:name', 0, groupName.toLowerCase() + ':' + groupName)
-							], next);
-						});
-					}, function(err) {
-						if (err) {
-							return next(err);
-						}
-
-						winston.info('[2015/06/02] Creating group sorted sets done');
-						Upgrade.update(thisSchemaDate, next);
-					});
-				});
-			} else {
-				winston.info('[2015/06/02] Creating group sorted sets skipped');
-				next();
-			}
-		},
-		function(next) {
-			thisSchemaDate = Date.UTC(2015, 6, 3);
-			if (schemaDate < thisSchemaDate) {
-				updatesMade = true;
-				winston.info('[2015/07/03] Enabling default composer plugin');
-
-				db.isSortedSetMember('plugins:active', 'nodebb-plugin-composer-default', function(err, active) {
-					if (!active) {
-						Plugins.toggleActive('nodebb-plugin-composer-default', function(err) {
-							if (err) {
-								return next(err);
-							}
 
 							if (userData.gravatarpicture === userData.picture) {
 								async.series([
