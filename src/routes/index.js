@@ -62,6 +62,7 @@ function userRoutes(app, middleware, controllers) {
 	setupPageRoute(app, '/users/online', middleware, middlewares, controllers.users.getOnlineUsers);
 	setupPageRoute(app, '/users/sort-posts', middleware, middlewares, controllers.users.getUsersSortedByPosts);
 	setupPageRoute(app, '/users/sort-reputation', middleware, middlewares, controllers.users.getUsersSortedByReputation);
+	setupPageRoute(app, '/users/sort-joindate', middleware, middlewares, controllers.users.getUsersSortedByJoinDate);
 	setupPageRoute(app, '/users/search', middleware, middlewares, controllers.users.getUsersForSearch);
  }
 
