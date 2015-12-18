@@ -69,8 +69,9 @@ function userRoutes(app, middleware, controllers) {
 	setupPageRoute(app, '/users/sort-posts', middleware, middlewares, controllers.users.getUsersSortedByPosts);
 	setupPageRoute(app, '/users/sort-reputation', middleware, middlewares, controllers.users.getUsersSortedByReputation);
 	setupPageRoute(app, '/users/banned', middleware, middlewares, controllers.users.getBannedUsers);
-}
-
+	setupPageRoute(app, '/users/sort-joindate', middleware, middlewares, controllers.users.getUsersSortedByJoinDate);
+	setupPageRoute(app, '/users/search', middleware, middlewares, controllers.users.getUsersForSearch);
+ }
 
 function groupRoutes(app, middleware, controllers) {
 	var middlewares = [middleware.checkGlobalPrivacySettings, middleware.exposeGroupName];
