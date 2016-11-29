@@ -11,6 +11,7 @@
     "invalid-uid": "Ungültige Benutzer-ID",
     "invalid-username": "Ungültiger Benutzername",
     "invalid-email": "Ungültige E-Mail-Adresse",
+    "invalid-steam64id": "Ungültige Steam64ID (waren %1 Zeichen, müssen 17 Ziffern sein)",
     "invalid-title": "Ungültiger Titel",
     "invalid-user-data": "Ungültige Benutzerdaten",
     "invalid-password": "Ungültiges Passwort",
@@ -143,3 +144,4 @@
     "invalid-session-text": "Es scheint als wäre deine Login-Sitzung nicht mehr aktiv oder sie passt nicht mehr mit der des Servers. Bitte aktualisiere diese Seite.",
     "no-topics-selected": "Keine Beiträge ausgewählt!"
 }
+
