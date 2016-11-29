@@ -13,7 +13,7 @@ var plugins = require('../plugins');
 module.exports = function (User) {
 	User.updateProfile = function (uid, data, callback) {
 		var fields = ['username', 'email', 'fullname', 'website', 'location',
-			'groupTitle', 'birthday', 'signature', 'aboutme'];
+			'groupTitle', 'birthday', 'signature', 'aboutme', 'picture', 'uploadedpicture', 'steam64id'];
 
 		var updateUid = data.uid;
 		var oldData;
@@ -38,6 +38,7 @@ module.exports = function (User) {
 					async.apply(isEmailAvailable, data, updateUid),
 					async.apply(isUsernameAvailable, data, updateUid),
 					async.apply(isGroupTitleValid, data),
+					async.apply(isSteam64idValid, data),
 				], function (err) {
 					next(err);
 				});
@@ -73,6 +74,15 @@ module.exports = function (User) {
 			},
 		], callback);
 	};
+
+	function isSteam64idValid(data, callback) {
+		var value = data.steam64id && data.steam64id.toString();
+		if (value && !value.match(/^[0-9]{17}$/)) {
+			callback(new Error('[[error:invalid-steam64id, ' + value.length + ']]'));
+		} else {
+			callback();
+		}
+	}
 
 	function isEmailAvailable(data, uid, callback) {
 		if (!data.email) {

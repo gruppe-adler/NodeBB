@@ -44,6 +44,7 @@ module.exports = function (User) {
 					lastposttime: 0,
 					banned: 0,
 					status: 'online',
+					steam64id: ''
 				};
 
 				User.uniqueUsername(userData, next);
