@@ -108,6 +108,9 @@
     "bookmark": "Lesezeichen",
     "bookmarks": "Lesezeichen",
     "bookmarks.has_no_bookmarks": "Du hast noch keine Beiträge mit Lesezeichen markiert.",
+    "favourite": "Merken",
+    "favourites": "Merkzettel",
+    "favourites.has_no_favourites": "Du hast noch nichts gemerkt.",
     "loading_more_posts": "Lade mehr Beiträge",
     "move_topic": "Thema verschieben",
     "move_topics": "Themen verschieben",
@@ -175,3 +178,4 @@
     "first-post": "First post",
     "last-post": "Last post"
 }
+
