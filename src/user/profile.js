@@ -14,7 +14,7 @@ module.exports = function (User) {
 
 	User.updateProfile = function (uid, data, callback) {
 		var fields = ['username', 'email', 'fullname', 'website', 'location',
-			'groupTitle', 'birthday', 'signature', 'aboutme', 'picture', 'uploadedpicture'];
+			'groupTitle', 'birthday', 'signature', 'aboutme', 'picture', 'uploadedpicture', 'steam64id'];
 
 		async.waterfall([
 			function (next) {
@@ -29,7 +29,8 @@ module.exports = function (User) {
 					async.apply(isSignatureValid, data),
 					async.apply(isEmailAvailable, data, uid),
 					async.apply(isUsernameAvailable, data, uid),
-					async.apply(isGroupTitleValid, data)
+					async.apply(isGroupTitleValid, data),
+					async.apply(isSteam64idValid, data)
 				], function (err) {
 					next(err);
 				});
@@ -77,6 +78,16 @@ module.exports = function (User) {
 			callback();
 		}
 	}
+
+	function isSteam64idValid(next) {
+		var value = data.steam64id && data.steam64id.toString();
+		if (value && !value.match(/^[0-9]{17}$/)) {
+			next(new Error('[[error:invalid-steam64id, ' + value.length + ']]'));
+		} else {
+			next();
+		}
+	}
+
 
 	function isEmailAvailable(data, uid, callback) {
 		if (!data.email) {
