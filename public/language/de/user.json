@@ -172,5 +172,7 @@
     "consent.right_to_data_portability_description": "Du kannst von uns eine Maschinen-Lesbare Datei von jeglichen gesammelten Daten von dir und deinem Konto anfordern, indem du unten auf den entsprechenden Knopf drückst. ",
     "consent.export_profile": "Profil exportieren (.csv)",
     "consent.export_uploads": "Hochgeladene Dateien exportieren (.zip)",
-    "consent.export_posts": "Beiträge exportieren (.csv)"
+    "consent.export_posts": "Beiträge exportieren (.csv)",
+    "info.moderation-note.add": "Notiz hinzufügen"
 }
+
