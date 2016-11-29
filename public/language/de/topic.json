@@ -85,6 +85,9 @@
     "bookmark": "Lesezeichen",
     "bookmarks": "Lesezeichen",
     "bookmarks.has_no_bookmarks": "Du hast noch keine Beiträge mit Lesezeichen markiert.",
+    "favourite": "Merken",
+    "favourites": "Merkzettel",
+    "favourites.has_no_favourites": "Du hast noch nichts gemerkt.",
     "loading_more_posts": "Lade mehr Beiträge",
     "move_topic": "Thema verschieben",
     "move_topics": "Themen verschieben",
@@ -127,5 +130,9 @@
     "link_back": "Re: [%1](%2)",
     "diffs.title": "Beitragsänderungsverlauf",
     "diffs.description": "Dieser Beitrag hat <strong>%1</strong> Revisionen. Klicke unten auf eine dieser Revisionen um den Inhalt zu diesem Zeitpunkt zu sehen.",
-    "diffs.no-revisions-description": "Dieser Beitrag ha <strong>%1</strong> Revisionen."
+    "diffs.no-revisions-description": "Dieser Beitrag ha <strong>%1</strong> Revisionen.",
+    "spam": "Spam",
+    "offensive": "Beleidigend",
+    "custom-flag-reason": "Gib einen Grund für die Markierung ein"
 }
+

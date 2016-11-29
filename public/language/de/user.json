@@ -25,6 +25,7 @@
     "profile_views": "Profilaufrufe",
     "reputation": "Ansehen",
     "bookmarks": "Lesezeichen",
+    "favourites": "Merkzettel",
     "watched": "Beobachtet",
     "ignored": "Ignoriert",
     "followers": "Follower",
@@ -142,5 +143,6 @@
     "info.email-history": "E-Mail Verlauf",
     "info.moderation-note": "Moderationsnotiz",
     "info.moderation-note.success": "Moderationsnotiz gespeichert",
-    "info.moderation-note.add": "Notitz hinzufügen"
+    "info.moderation-note.add": "Notiz hinzufügen"
 }
+

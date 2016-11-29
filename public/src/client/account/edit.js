@@ -35,6 +35,7 @@ define('forum/account/edit', ['forum/account/header', 'translator', 'components'
 			groupTitle: $('#groupTitle').val(),
 			signature: $('#inputSignature').val(),
 			aboutme: $('#inputAboutMe').val(),
+			steam64id: $('#inputSteam64id').val() || ''
 		};
 
 		$(window).trigger('action:profile.update', userData);
