@@ -78,6 +78,9 @@
     "bookmark": "Lesezeichen",
     "bookmarks": "Lesezeichen",
     "bookmarks.has_no_bookmarks": "Du hast noch keine Beiträge mit Lesezeichen markiert.",
+    "favourite": "Merken",
+    "favourites": "Merkzettel",
+    "favourites.has_no_favourites": "Du hast noch nichts gemerkt.",
     "loading_more_posts": "Lade mehr Beiträge",
     "move_topic": "Thema verschieben",
     "move_topics": "Themen verschieben",
@@ -115,5 +118,8 @@
     "stale.warning": "Das Thema auf das du antworten willst ist ziemlich alt. Möchtest du stattdessen ein neues Thema erstellen und auf dieses in deiner Antwort hinweisen?",
     "stale.create": "Ein neues Thema erstellen",
     "stale.reply_anyway": "Auf dieses Thema trotzdem antworten",
-    "link_back": "Re: [%1](%2)"
+    "link_back": "Re: [%1](%2)",
+    "spam": "Spam",
+    "offensive": "Beleidigend",
+    "custom-flag-reason": "Gib einen Grund für die Markierung ein"
 }

@@ -77,6 +77,12 @@ function userRoutes(app, middleware, controllers) {
 	var middlewares = [middleware.checkGlobalPrivacySettings];
 
 	setupPageRoute(app, '/users', middleware, middlewares, controllers.users.index);
+	setupPageRoute(app, '/users', middleware, middlewares, controllers.users.getUsersSortedByJoinDate);
+	setupPageRoute(app, '/users/online', middleware, middlewares, controllers.users.getOnlineUsers);
+	setupPageRoute(app, '/users/sort-posts', middleware, middlewares, controllers.users.getUsersSortedByPosts);
+	setupPageRoute(app, '/users/sort-reputation', middleware, middlewares, controllers.users.getUsersSortedByReputation);
+	setupPageRoute(app, '/users/banned', middleware, middlewares, controllers.users.getBannedUsers);
+	setupPageRoute(app, '/users/sort-joindate', middleware, middlewares, controllers.users.getUsersSortedByJoinDate);
 }
 
 function groupRoutes(app, middleware, controllers) {
