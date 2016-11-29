@@ -11,6 +11,7 @@
     "invalid-uid": "Ungültige Benutzer-ID",
     "invalid-username": "Ungültiger Benutzername",
     "invalid-email": "Ungültige E-Mail-Adresse",
+    "invalid-steam64id": "Ungültige Steam64ID (waren %1 Zeichen, müssen 17 Ziffern sein)",
     "invalid-title": "Ungültiger Titel",
     "invalid-user-data": "Ungültige Benutzerdaten",
     "invalid-password": "Ungültiges Passwort",
@@ -150,3 +151,4 @@
     "cannot-block-self": "You cannot block yourself!",
     "cannot-block-privileged": "You cannot block administrators or global moderators"
 }
+
