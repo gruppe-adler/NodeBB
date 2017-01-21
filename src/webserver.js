@@ -140,7 +140,8 @@ function setupExpressApp(app) {
 	app.use(relativePath + '/apple-touch-icon', middleware.routeTouchIcon);
 
 	app.use(bodyParser.urlencoded({extended: true}));
-	app.use(bodyParser.json());
+	app.use(bodyParser.text({type: "application/xml"}));
+	app.use(bodyParser.json({type: "*/*"}));
 	app.use(cookieParser());
 	app.use(useragent.express());
 
