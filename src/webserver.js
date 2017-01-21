@@ -201,6 +201,8 @@ function configureBodyParser(app) {
 	}
 	app.use(bodyParser.urlencoded(urlencodedOpts));
 
+	app.use(bodyParser.text({type: "application/xml"}));
+
 	const jsonOpts = nconf.get('bodyParser:json') || {};
 	app.use(bodyParser.json(jsonOpts));
 }
