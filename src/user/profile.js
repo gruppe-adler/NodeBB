@@ -79,12 +79,12 @@ module.exports = function (User) {
 		}
 	}
 
-	function isSteam64idValid(next) {
+	function isSteam64idValid(data, callback) {
 		var value = data.steam64id && data.steam64id.toString();
 		if (value && !value.match(/^[0-9]{17}$/)) {
-			next(new Error('[[error:invalid-steam64id, ' + value.length + ']]'));
+			callback(new Error('[[error:invalid-steam64id, ' + value.length + ']]'));
 		} else {
-			next();
+			callback();
 		}
 	}
 
