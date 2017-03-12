@@ -151,6 +151,14 @@ module.exports = function (User) {
 				user['icon:bgColor'] = '#aaa';
 			}
 
+			var picture_host_regex = /^http:\/\/(media\.steampowered\.com|cdn\.akamai\.steamstatic\.com)\//;
+			if (user.picture) {
+				user.picture = user.picture.replace(picture_host_regex, 'https://gruppe-adler.de/');
+			}
+			if (user.uploadedpicture) {
+				user.uploadedpicture = user.uploadedpicture.replace(picture_host_regex, 'https://gruppe-adler.de/');
+			}
+
 			if (user.picture && user.picture === user.uploadedpicture) {
 				user.uploadedpicture = user.picture.startsWith('http') ? user.picture : nconf.get('relative_path') + user.picture;
 				user.picture = user.uploadedpicture;
