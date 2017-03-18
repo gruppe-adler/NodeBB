@@ -141,7 +141,7 @@ function setupExpressApp(app) {
 
 	app.use(bodyParser.urlencoded({extended: true}));
 	app.use(bodyParser.text({type: "application/xml"}));
-	app.use(bodyParser.json({type: "*/*"}));
+	app.use(bodyParser.json());
 	app.use(cookieParser());
 	app.use(useragent.express());
 
