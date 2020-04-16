@@ -80,7 +80,13 @@ Groups.getNonPrivilegeGroups = function (set, start, stop, callback) {
 		},
 		function (groupNames, next) {
 			groupNames = groupNames.concat(Groups.ephemeralGroups).filter(groupName => !Groups.isPrivilegeGroup(groupName));
-			Groups.getGroupsData(groupNames, next);
+			Groups.getGroupsData(groupNames, function (err, groups) {
+				// safety function in case of broken groups data
+				var missingGroups = groups.map((g, idx) => { if (!g) { return idx; } return -1; }).filter(i => i !== -1).map(i => groupNames[i]);
+				if (missingGroups.length > 0) { console.log(missingGroups); }
+				groups = groups.filter(g => g);
+				next(err, groups);
+			});
 		},
 	], callback);
 };

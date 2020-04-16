@@ -70,7 +70,7 @@ Auth.reloadRoutes = function (router, callback) {
 
 				router.get(strategy.callbackURL, function (req, res, next) {
 					// Ensure the passed-back state value is identical to the saved ssoState
-					next(req.query.state !== req.session.ssoState ? new Error('[[error:csrf-invalid]]') : null);
+					next(req.query.state && (req.query.state !== req.session.ssoState) ? new Error('[[error:csrf-invalid]]') : null);
 				}, function (req, res, next) {
 					// Trigger registration interstitial checks
 					req.session.registration = req.session.registration || {};
